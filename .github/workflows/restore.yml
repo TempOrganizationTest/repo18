@@ -1,0 +1,20 @@
+name: Restore Repository
+
+on:
+  workflow_dispatch:
+    inputs:
+      record_id:
+        description: 'Record ID'
+        required: true
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Restore Repository
+        uses: berkayy-atas/marketplace-test-workflow-restore@v1.0.17
+        with:
+          activation_code: ${{ secrets.ACTIVATION_CODE }}
+          encryption_key: ${{ secrets.ENCRYPTION_KEY }}
+          record_id: ${{ github.event.inputs.RECORD_ID }}
