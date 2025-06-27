@@ -1,5 +1,7 @@
 name: Restore Repository
 
+permissions: write-all
+
 on:
   workflow_dispatch:
     inputs:
@@ -10,7 +12,6 @@ on:
 jobs:
   restore:
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - name: Restore Repository
         uses: berkayy-atas/marketplace-test-workflow-restore@latest
